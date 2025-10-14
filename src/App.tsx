@@ -9,7 +9,7 @@ function App() {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [lyrics, setLyrics] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
   const handleRequest = async () => {
     try {
       const lyric = await getSpecificLyric(title, artist);
