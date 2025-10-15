@@ -10,7 +10,7 @@ const db = mysql.createConnection({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'songlyrics'
+  database: process.env.DB_NAME || 'lyrics'
 });
 
 app.get('/', (re, res) => {
@@ -18,7 +18,7 @@ app.get('/', (re, res) => {
 });
 
 app.get('/lyrics', (req, res) => {
-    const sql = "SELECT * FROM songlyrics"
+    const sql = "SELECT * FROM lyrics"
     db.query(sql, (err, data) => {
         if(err) return res.json(err);
         return res.json(data);
