@@ -12,6 +12,7 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'lyrics'
 });
+console.log(process.env);
 
 app.get('/', (re, res) => {
     return res.json("From Backend Side");
