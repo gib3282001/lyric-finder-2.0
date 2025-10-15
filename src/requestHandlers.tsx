@@ -1,6 +1,8 @@
 export const getLyrics = async () => {
   try {
-    const lyricsObj = await fetch("http://localhost:8081/lyrics");
+    const lyricsObj = await fetch(
+      "https://lyric-finder-2-0.onrender.com/lyrics"
+    );
     const returnObj = await lyricsObj.json();
     return returnObj;
   } catch (err) {
@@ -14,11 +16,14 @@ export const postLyrics = async (
   verses: string
 ) => {
   try {
-    const request = await fetch("http://localhost:8081/lyrics", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ songName, artistName, verses }),
-    });
+    const request = await fetch(
+      "https://lyric-finder-2-0.onrender.com/lyrics",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ songName, artistName, verses }),
+      }
+    );
     const response = await request.json();
     return response;
   } catch (err) {
@@ -31,11 +36,14 @@ export const getSpecificLyric = async (
   artistName: string
 ) => {
   try {
-    const request = await fetch("http://localhost:8081/getLyric", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ songName, artistName }),
-    });
+    const request = await fetch(
+      "https://lyric-finder-2-0.onrender.com/getLyric",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ songName, artistName }),
+      }
+    );
     const response = await request.json();
     return response;
   } catch (err) {
