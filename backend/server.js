@@ -12,7 +12,6 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME
 });
-console.log('here');
 
 app.get('/', (re, res) => {
     return res.json("From Backend Side");
@@ -47,4 +46,5 @@ app.post('/getLyric', (req, res) => {
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log("listening");
+    console.log(PORT);
 });
